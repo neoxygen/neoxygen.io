@@ -1,0 +1,14 @@
+{
+  "name": "noexygen",
+  "version": "0.1.0",
+  "ignore": [
+    "site",
+    "app",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "~3.2.0"
+  },
+  "devDependencies": {}
+}

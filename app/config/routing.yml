@@ -1,0 +1,9 @@
+neoxygen_web:
+    resource: "@NeoxygenWebBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+neoxygen_app:
+    resource: "@NeoxygenAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
