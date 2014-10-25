@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Neoxygen\WebBundle\Entity\BlogPost;
 use Neoxygen\WebBundle\Form\BlogPostType;
 
@@ -87,6 +88,7 @@ class BlogPostController extends Controller
      * @Route("/new", name="news_new")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction()
     {
