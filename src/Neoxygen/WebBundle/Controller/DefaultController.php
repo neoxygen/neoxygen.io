@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Tests\B;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", name="home")
      * @Template()
      */
     public function indexAction()

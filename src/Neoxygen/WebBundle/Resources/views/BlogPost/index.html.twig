@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+
+{% block content -%}
+
+
+    <div class="section section-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>News</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="row service-wrapper-row">
+                <div class="col-sm-8">
+                    <h3>Neoxygen.io is alive !</h3>
+                    <p>
+                        We are pleased to announce you that Neoxygen is alive. We are aimed to bridge PHP &amp; Neo4j by providing powerful components coveraging your needs.
+                    </p>
+                </div>
+            </div>
+            <hr/>
+
+            {% for post in posts %}
+            <div class="row service-wrapper-row">
+                <div class="col-sm-4">
+                    <div class="service-image">
+                        <img src="img/services2.jpg" alt="Blog Post Image">
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <h3>{{ post.title }}</h3>
+                    <p>
+                        {{ post.body }}
+                    </p>
+                </div>
+            </div>
+                <hr />
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
