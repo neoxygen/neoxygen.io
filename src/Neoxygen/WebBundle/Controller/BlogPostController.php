@@ -54,7 +54,7 @@ class BlogPostController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('news_show', array('id' => $entity->getId(), 'slug' => $entity->getSlug())));
         }
 
         return array(
@@ -104,7 +104,7 @@ class BlogPostController extends Controller
     /**
      * Finds and displays a BlogPost entity.
      *
-     * @Route("/{id}", name="news_show")
+     * @Route("/{id}/{slug}", name="news_show")
      * @Method("GET")
      * @Template()
      */

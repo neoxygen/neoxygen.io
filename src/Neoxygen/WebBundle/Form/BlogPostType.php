@@ -17,6 +17,7 @@ class BlogPostType extends AbstractType
         $builder
             ->add('title')
             ->add('body')
+            ->add('preview')
         ;
     }
     
