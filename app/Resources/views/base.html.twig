@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Neoxygen | Bridging PHP and Neo4j</title>
+    <title>Neoxygen{% block title %} |Bridging PHP and Neo4j{% endblock %}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="{{ '/assets/css/leaflet.ie.css' }}" />
     <![endif]-->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' }}">
+
+    {% block stylesheets %}
+
+    {% endblock %}
 
     <script src="{{ '/assets/js/modernizr-2.6.2-respond-1.1.0.min.js' }}"></script>
     <script>
@@ -45,20 +49,17 @@
         <nav id="mainmenu" class="mainmenu">
             <ul>
                 <li class="logo-wrapper"><a href="{{ path('home') }}"><span>Neoxygen</span> | Bridging PHP &amp; Neo4j</a></li>
-                <li class="active">
+                <li class="{% if app.request.attributes.get('_route') == 'home' %}active{% endif %}">
                     <a href="{{ path('home') }}">Home</a>
                 </li>
-                <!--
-                <li>
-                    <a href="#">Components</a>
+                <li class="{% if app.request.attributes.get('_route') starts with 'news' %}active{% endif %}">
+                    <a href="{{ path('news') }}" title="News related to PHP, Neo4j and Graphs">News</a>
                 </li>
-                <li>
-                    <a href="#">Services</a>
+                <li class="{% if app.request.attributes.get('_route') starts with 'component' %}active{% endif %}">
+                    <a href="{{ path('components') }}" title="Neoxygen PHP Components for Neo4j">Components</a>
                 </li>
-                -->
-
-                <li>
-                    <a href="{{ path('news') }}">News</a>
+                <li class="{% if app.request.attributes.get('_route') starts with 'release' %}active{% endif %}">
+                    <a href="{{ path('releases') }}" title="Latest components releases">Releases</a>
                 </li>
                 <!--
                 <li><a href="#">Contact</a></li>
@@ -87,9 +88,9 @@
             <div class="col-footer col-md-3 col-xs-6">
                 <h3>Navigate</h3>
                 <ul class="no-list-style footer-navigate-section">
-                    <li><a href="#">Components</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">Services</a></li>
+                    <li><a href="{{ path('components') }}" title="PHP Components for Neo4j">Components</a></li>
+                    <li><a href="{{ path('news') }}" title="News about PHP, Neo4j and graphs">News</a></li>
+                    <li><a href="{{ path('releases') }}" title="Latest releases of the Neoxygen PHP Components for Neo4j">Releases</a></li>
                     <li><a href="mailto:contact@neoxygen.io">Contact</a></li>
                 </ul>
             </div>
@@ -119,6 +120,8 @@
 <script src="{{ '/assets/js/jquery.bxslider.js' }}"></script>
 <script src="{{ '/assets/js/main-menu.js' }}"></script>
 <script src="{{ '/assets/js/template.js' }}"></script>
+{% block javascripts %}
+{% endblock %}
 
 </body>
 </html>

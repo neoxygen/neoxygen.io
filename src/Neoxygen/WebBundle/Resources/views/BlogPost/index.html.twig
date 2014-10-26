@@ -1,5 +1,13 @@
 {% extends '::base.html.twig' %}
 
+{% block title %}
+ | News
+{% endblock %}
+
+{% block topmenu %}
+    {% set active = 'news' %}
+{% endblock %}
+
 {% block content -%}
 
 
@@ -7,20 +15,11 @@
 
     <div class="section">
         <div class="container">
-            <div class="row service-wrapper-row">
-                <div class="col-sm-8">
-                    <h3>Neoxygen.io is alive !</h3>
-                    <p>
-                        We are pleased to announce you that Neoxygen is alive. We are aimed to bridge PHP &amp; Neo4j by providing powerful components coveraging your needs.
-                    </p>
-                </div>
-            </div>
-            <hr/>
 
             {% for post in posts %}
             <div class="row service-wrapper-row">
                 <div class="col-sm-8">
-                    <h3><a href="{{ path('news_show', {'id': post.id, 'slug':post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+                    <h3><a href="{{ path('news_show', {'slug':post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></h3>
                     <p>
                         {{ post.body|markdown }}
                     </p>

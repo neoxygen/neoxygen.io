@@ -1,10 +1,18 @@
 {% extends '::base.html.twig' %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ '/assets/css/bootstrap-markdown.min.css' }}">
+{% endblock %}
+
 {% block content -%}
     <div class="container">
         <h1>News creation</h1>
 
-        {{ form(form) }}
+        {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_label(form.body) }}
+        {{ form_widget(form.body, {'attr':{'data-provide':'markdown-editable'}}) }}
+        {{ form_rest(form) }}
 
         <ul class="record_actions">
             <li>
@@ -15,4 +23,10 @@
         </ul>
     </div>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ '/assets/js/bootstrap-markdown.js' }}"></script>
+    <script src="{{ '/assets/js/to-markdown.js' }}"></script>
+    <script src="{{ '/assets/js/markdown.js' }}"></script>
 {% endblock %}

@@ -1145,28 +1145,35 @@ span.color-red {
 /*--------------------------------------------------------------------------
 +	Jobs list Style
 --------------------------------------------------------------------------*/
-.jobs-list {
+.releases-list {
   width: 100%;
 }
-.jobs-list th {
+.releases-list th {
   font-size: 1.2em;
   text-align: left;
   padding: 10px 0;
 }
-.jobs-list td {
+.releases-list td {
   padding: 5px 20px 5px 0;
   border-top: 1px solid #E6E6E6;
 }
-.jobs-list tr:last-child td {
+.releases-list tr:last-child td {
   border-bottom: 1px solid #E6E6E6;
 }
-.job-position a {
+.releases-list-package {
   color: #535b60;
   font-size: 1.1em;
 }
-.job-location,
-.job-type {
+.releases-list-package a,
+.release-date {
   font-size: 0.9em;
+  margin-left: 4px;
+}
+
+.releases-list-package a.release-info {
+  font-size: 0.9em;
+  margin-left: 4px;
+  display: inline-block;
 }
 .join-us-promo blockquote {
   margin: 0;

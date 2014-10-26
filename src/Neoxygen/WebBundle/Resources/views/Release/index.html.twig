@@ -1,0 +1,44 @@
+{% extends '::base.html.twig' %}
+
+{% block content -%}
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Latest Component Releases</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <table class="releases-list">
+                    <tr>
+                        <th>Component</th>
+                        <th>Version</th>
+                        <th>Date</th>
+                    </tr>
+
+                    {% for entity in entities %}
+                        <tr>
+                            <!-- Position -->
+                            <td class="releases-list-package">
+                                {{ entity.package }}<a href="{{ path('releases_show', {'id': entity.id, 'slug': entity.slug}) }}" class="release-package-info">Release info</a>
+                            </td>
+                            <!-- Location -->
+                            <td class="releases-list-version">
+                                <div class="release-version">{{ entity.version }}</div>
+                            </td>
+                            <!-- Job Type -->
+                            <td class="release-date">{{ entity.created|date('d-m-Y') }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            </div>
+        </div>
+
+{% endblock %}

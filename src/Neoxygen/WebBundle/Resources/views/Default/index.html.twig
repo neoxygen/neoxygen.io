@@ -56,12 +56,14 @@
                 <!-- Featured News -->
                 <div class="col-sm-6 featured-news">
                     <h2>Latest releases</h2>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <div class="caption"><a href="page-blog-post-right-sidebar.html">NeoClient</a></div>
-                            <div class="intro">NeoClient 1.6.8 <a href="https://github.com/neoxygen/neo4j-neoclient">Read more...</a></div>
+                    {% for release in releases %}
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="caption"><a href="page-blog-post-right-sidebar.html">{{ release.package }}</a></div>
+                                <div class="intro">v {{ release.version }}<a href="{{ path('releases_show', {'id':release.id, 'slug':release.slug}) }}">&nbsp;Read release info...</a></div>
+                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <!-- End Featured News -->
                 <!-- Latest News -->
@@ -70,9 +72,9 @@
                     {% for post in posts %}
                         <div class="row">
                             <div class="col-sm-12">
-                                <div class="caption"><a href="#">{{ post.title }}</a></div>
+                                <div class="caption"><a href="{{ path('news_show', {'slug': post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></div>
                                 <div class="date"></div>
-                                <div class="intro">{{ post.body }}<a href="">Read more...</a></div>
+                                <div class="intro">{{ post.body }}&nbsp;<a href="{{ path('news_show', {'slug': post.slug}) }}" title="Read more about the article {{ post.title }}">Read more...</a></div>
                             </div>
                         </div>
                     {% endfor %}
@@ -115,26 +117,26 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6">
                     <div class="service-wrapper">
-                        <img src="{{ '/assets/img/service-icon/box.png' }}" alt="Service 1">
+                        <img src="{{ '/assets/img/service-icon/box.png' }}" alt="Package">
                         <h3>NeoClient</h3>
-                        <p>The most advanced PHP client for the Neo4j ReST API, with native multiDB, replication feature. Ready for Neo4j Enterprise.</p>
-                        <a href="#" class="btn">Read more</a>
+                        <p>The most advanced PHP client for the Neo4j ReST API, with native multiDB, replication feature and extension management.</p>
+                        <a href="{{ path('components') }}" class="btn">Read more</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="service-wrapper">
-                        <img src="{{ '/assets/img/service-icon/diamond.png' }}" alt="Service 2">
-                        <h3>Neogen</h3>
-                        <p>The core of the Graphgen web app, graph generation made easy and handful to be embed in your test suites.</p>
-                        <a href="#" class="btn">Read more</a>
+                        <img src="{{ '/assets/img/service-icon/diamond.png' }}" alt="Package">
+                        <h3>Graphgen</h3>
+                        <p>An online Neo4j Graph Generation engine. Export features and database importer, even in your local instances.</p>
+                        <a href="http://graphgen.neoxygen.io" target="_blank" class="btn">Discover !</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="service-wrapper">
-                        <img src="{{ '/assets/img/service-icon/ruler.png' }}" alt="Service 3">
+                        <img src="{{ '/assets/img/service-icon/ruler.png' }}" alt="Service">
                         <h3>Custom needs ?</h3>
-                        <p>Need custom development in PHP around Neo4j, or a formation ? <br/> We'll be happy to offer you our services.</p>
-                        <a href="#" class="btn">Read more</a>
+                        <p>Need custom development in PHP around Neo4j, or a formation ? <br/> We'll be happy to help you. Get in touch !</p>
+                        <a href="mailto:contact@neoxygen.io" class="btn">Read more</a>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="calltoaction-wrapper">
-                        <h3>Discover more components on our <b>Components page</b></h3> <a href="#" class="btn btn-orange">Discover !</a>
+                        <h3>Discover more components on our <b>Components page</b></h3> <a href="{{ path('components') }}" class="btn btn-orange" title="Neoxygen's PHP Components for Neo4j">Discover !</a>
                     </div>
                 </div>
             </div>
