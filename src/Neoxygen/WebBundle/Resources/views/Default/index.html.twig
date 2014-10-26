@@ -74,7 +74,7 @@
                             <div class="col-sm-12">
                                 <div class="caption"><a href="{{ path('news_show', {'slug': post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></div>
                                 <div class="date"></div>
-                                <div class="intro">{{ post.body }}&nbsp;<a href="{{ path('news_show', {'slug': post.slug}) }}" title="Read more about the article {{ post.title }}">Read more...</a></div>
+                                <div class="intro">{{ post.preview }}&nbsp;<a href="{{ path('news_show', {'slug': post.slug}) }}" title="Read more about the article {{ post.title }}">Read more...</a></div>
                             </div>
                         </div>
                     {% endfor %}
