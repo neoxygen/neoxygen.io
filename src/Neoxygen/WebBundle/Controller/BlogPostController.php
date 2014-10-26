@@ -129,6 +129,7 @@ class BlogPostController extends Controller
      * @Route("/{id}/edit", name="news_edit")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction($id)
     {
@@ -206,6 +207,7 @@ class BlogPostController extends Controller
      *
      * @Route("/{id}", name="news_delete")
      * @Method("DELETE")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteAction(Request $request, $id)
     {

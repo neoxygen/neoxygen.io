@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Neoxygen\WebBundle\Entity\Release;
 use Neoxygen\WebBundle\Form\ReleaseType;
 
@@ -41,6 +42,7 @@ class ReleaseController extends Controller
      * @Route("/", name="releases_create")
      * @Method("POST")
      * @Template("NeoxygenWebBundle:Release:new.html.twig")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -87,6 +89,7 @@ class ReleaseController extends Controller
      * @Route("/new", name="releases_new")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function newAction()
     {
@@ -130,6 +133,7 @@ class ReleaseController extends Controller
      * @Route("/{id}/edit", name="releases_edit")
      * @Method("GET")
      * @Template()
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction($id)
     {
@@ -175,6 +179,7 @@ class ReleaseController extends Controller
      * @Route("/{id}", name="releases_update")
      * @Method("PUT")
      * @Template("NeoxygenWebBundle:Release:edit.html.twig")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function updateAction(Request $request, $id)
     {
@@ -207,6 +212,7 @@ class ReleaseController extends Controller
      *
      * @Route("/{id}", name="releases_delete")
      * @Method("DELETE")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function deleteAction(Request $request, $id)
     {
