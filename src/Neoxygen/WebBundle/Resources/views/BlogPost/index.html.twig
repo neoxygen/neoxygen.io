@@ -22,8 +22,9 @@
                 <div class="col-sm-8">
                     <h3><a href="{{ path('news_show', {'slug':post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></h3>
                     <p>
-                        {{ post.body|markdown }}
+                        {{ post.preview }}
                     </p>
+                    <p>Written by <a href="https://twitter.com/ikwattro">Christophe Willemen</a> on {{ post.created|date('d-m-Y') }} at {{ post.created|date('H:i:s') }}</p>
                 </div>
             </div>
                 <hr />

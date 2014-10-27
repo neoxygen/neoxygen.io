@@ -28,7 +28,7 @@ class BlogPost
     protected $body;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="text")
      */
     protected $preview;
 
