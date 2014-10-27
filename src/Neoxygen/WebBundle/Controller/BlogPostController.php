@@ -30,10 +30,15 @@ class BlogPostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NeoxygenWebBundle:BlogPost')->findAll();
+        $posts = $em->getRepository('NeoxygenWebBundle:BlogPost')
+            ->findBy(
+                array(),
+                array('created' => 'DESC'),
+                5
+            );
 
         return array(
-            'posts' => $entities,
+            'posts' => $posts,
         );
     }
     /**
